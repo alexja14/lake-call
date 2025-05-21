@@ -1,6 +1,56 @@
 /* Custom styles beyond Tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+
+:root {
+  --transition-standard: 0.3s ease;
+}
+
+/* Hero section styles */
 .hero-image {
-  filter: brightness(0.8);
+  filter: brightness(0.9);
+  transition: transform 8s ease;
+}
+
+.hero-section:hover .hero-image {
+  transform: scale(1.05);
+}
+
+/* Glass effect for UI elements */
+.glass-effect {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* Navigation hover effects */
+.nav-link {
+  position: relative;
+  transition: var(--transition-standard);
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: currentColor;
+  transition: width var(--transition-standard);
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+/* Card hover effects */
+.agent-card {
+  transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
 }
 
 /* Override container width for better spacing */
@@ -13,4 +63,23 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Modern button styles */
+.btn-modern {
+  transition: all var(--transition-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #0284c7, #0ea5e9, #38bdf8);
 }
